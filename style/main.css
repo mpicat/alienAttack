@@ -4,4 +4,23 @@
   font-size: 100%;
   font-family: 'Space Grotesk', sans-serif;
 }
+
+#warning-message {
+  display: none;
+}
+
+@media only screen and (orientation: portrait) {
+  #wrapper {
+    display: none;
+  }
+  #warning-message {
+    display: block;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #warning-message {
+    display: none;
+  }
+}
 /*# sourceMappingURL=main.css.map */
