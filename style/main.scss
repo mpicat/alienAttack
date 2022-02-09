@@ -4,52 +4,63 @@
     font-family: 'Space Grotesk', sans-serif;
 }
 
-// variables
-$size-high: 2.5rem;
+html, body {
+    height: 100%;
+}
+
+// Variables
+$size-high: 3rem;
 $size-normal: 1rem;
 $primary: #1c9eec;
 
-// orientation landscape
-#warning-message {
-    display: none;
-}
-
-@media only screen and (orientation:portrait){
-    #main-wrapper {
-        display:none;
-    }
-    #warning-message {
-        display:block;
-    }
-}
-@media only screen and (orientation:landscape){
-    #warning-message {
-        display:none;
-    }
-}
 
 // Accueil
+.main-wrapper {
+    position: relative;
+    height: 100%;
+    background-image: url(/img/bg2.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &__welcome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 13%;
+        position: relative;
+        h1 {
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: $size-high;
+            color: $primary;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px black;
+        }
+        a {
+            font-size: $size-normal;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $primary;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px black;
+            animation: clignote 2000ms ease-in-out infinite;
 
-#main-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 12%;
-    h1 {
-        padding-bottom: 10px;
-        text-transform: uppercase;
-        font-size: $size-high;
-        color: $primary;
+        }
     }
-    a {
-        font-size: $size-normal;
-        text-decoration: none;
-        color: $primary;
-        animation: clignote 2000ms ease-in-out infinite;
-
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.6;
     }
 }
+
 
 @keyframes clignote {
     0% {
@@ -60,5 +71,31 @@ $primary: #1c9eec;
     }
     100% {
         opacity: 1;
+    }
+}
+
+// orientation landscape
+.main-wrapper__warning-message {
+    display: none;
+}
+
+@media only screen and (orientation:portrait){
+    .main-wrapper {
+        background-image: none;
+        &__welcome {
+            display:none;
+        }
+        &__bg {
+            display:none;
+        }
+        &__warning-message {
+            display:block;
+        }
+    }
+}
+
+@media only screen and (orientation:landscape){
+    .main-wrapper__warning-message {
+        display:none;
     }
 }
