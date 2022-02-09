@@ -12,7 +12,6 @@ html, body {
 .main-wrapper {
   position: relative;
   height: 100%;
-  background-image: url(../Images/bg2.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
