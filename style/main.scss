@@ -4,13 +4,18 @@
     font-family: 'Space Grotesk', sans-serif;
 }
 
+// variables
+$size-high: 2.5rem;
+$size-normal: 1rem;
+$primary: #1c9eec;
+
 // orientation landscape
 #warning-message {
     display: none;
 }
 
 @media only screen and (orientation:portrait){
-    #wrapper {
+    #main-wrapper {
         display:none;
     }
     #warning-message {
@@ -20,5 +25,40 @@
 @media only screen and (orientation:landscape){
     #warning-message {
         display:none;
+    }
+}
+
+// Accueil
+
+#main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12%;
+    h1 {
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        font-size: $size-high;
+        color: $primary;
+    }
+    a {
+        font-size: $size-normal;
+        text-decoration: none;
+        color: $primary;
+        animation: clignote 2000ms ease-in-out infinite;
+
+    }
+}
+
+@keyframes clignote {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
